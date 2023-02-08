@@ -1,0 +1,162 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id("maven-publish")
+    id("org.jetbrains.dokka")
+}
+
+var dokkaOutputDir = "$buildDir/dokka"
+var pomGroup = project.property("POM_GROUP").toString()
+var pomName = project.property("POM_NAME").toString()
+var pomDescription = project.property("POM_DESCRIPTION").toString()
+var pomYear = project.property("POM_INCEPTION_YEAR").toString()
+var pomLicenseDist = project.property("POM_LICENCE_DIST").toString()
+var pomLicenseName = project.property("POM_LICENCE_NAME").toString()
+var pomLicenseUrl = project.property("POM_LICENCE_URL").toString()
+android {
+    namespace 'com.localiza.designsystem'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    tasks.register('jacocoReportTest', JacocoReport) {
+        dependsOn("test")
+        group = "Reporting"
+        description = "Generate Jacoco coverage reports."
+        def coverageSourceDirs = [
+                'src/main/java',
+        ]
+        def kotlinTree = ["${buildDir}/tmp/kotlin-classes/debug",]
+        sourceDirectories.setFrom(files(coverageSourceDirs))
+        additionalSourceDirs.setFrom(files(coverageSourceDirs))
+        classDirectories.setFrom(files(kotlinTree))
+        executionData.setFrom(fileTree(project.buildDir) {
+            include("jacoco/*.exec")
+            include("j**/R.class")
+            include("**/R\$*.class")
+            include("**/BuildConfig.*")
+            include("**/Manifest*.*")
+            include("**/*Test*.*")
+            include("android/**/*.*")
+            include("android/**/*.*")
+            include("android/**/*.*")
+        })
+        executionData.setFrom(files("${buildDir}/jacoco/testDebugUnitTest.exec"))
+        reports {
+            xml {
+                enabled  true
+                destination file("${buildDir}/jacoco-reports/jacoco.xml")
+            }
+            csv {
+                enabled  false
+            }
+            html{
+                enabled  true
+                destination file("${buildDir}/jacoco-reports/html")
+            }
+
+        }
+    }
+
+    /**
+     * This task generates documentation
+     */
+    tasks.dokkaHtml {
+        outputDirectory.set(file(dokkaOutputDir))
+        dokkaSourceSets {
+            configureEach {
+                // Emit warnings about not documented members. Applies globally, also can be overridden by packageOptions
+                reportUndocumented.set(true)
+
+                // Do not create index pages for empty packages
+                skipEmptyPackages.set(true)
+
+            }
+        }
+    }
+
+    /**
+     * This task deletes older documents
+     */
+    def deleteDokkaOutputDir = tasks.register('deleteDokkaOutputDirectory', Delete) {
+        delete(dokkaOutputDir)
+    }
+
+    /**
+     * This task creates JAVA Docs for Release
+     */
+
+    def javadocJar = tasks.register('javadocJar', Jar) {
+        dependsOn(deleteDokkaOutputDir, tasks.dokkaHtml)
+        archiveClassifier.set("javadoc")
+        from(dokkaOutputDir)
+    }
+
+
+
+}
+publishing {
+    repositories {
+        maven {
+            url "https://localiza.pkgs.visualstudio.com/_packaging/LocalizaMobile/maven/v1"
+            name "LocalizaMobile"
+            credentials {
+                username "AzureDevOps"
+                password System.getenv("SYSTEM_ACCESSTOKEN") ?: ""
+            }
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
+    }
+    publications {
+        maven(MavenPublication) {
+            artifact javadocJar
+            pom {
+                name = "designsystem"
+                description = pomDescription
+                inceptionYear = pomYear
+                licenses {
+                    license {
+                        distribution = pomLicenseDist
+                        name = pomLicenseName
+                        url = pomLicenseUrl
+                    }
+                }
+            }
+            version = rootProject.file("designsystem/version.txt").text.toString().trim()
+            groupId = "com.localiza"
+            setArtifactId(artifactId)
+        }
+    }
+
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation 'com.google.android.material:material:1.8.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
