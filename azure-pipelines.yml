@@ -5,9 +5,6 @@ trigger:
   branches:
     include:
       - '*'
-  paths:
-    include:
-      - designsystem/*
 
 name: $(Build.BuildId)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 resources:
@@ -20,6 +17,10 @@ resources:
       type: git
       name: 'Infraestrutura - Localiza Agile/TI.CICD.Templates'
       ref: refs/tags/7-stable
+    - repository: templatesBackstage
+      type: git
+      name: 'Infraestrutura - Localiza Agile/TI.CICD.Templates.Backstage'
+      ref: refs/tags/2-stable
 
 variables:
   - template: config.yml@templatesconfig
