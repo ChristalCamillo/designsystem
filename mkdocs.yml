@@ -1,0 +1,12 @@
+site_name: "mob-design-system-android"
+site_description: "Biblioteca para centralizar a estratégia de tokens e temas do Localiza Design System para Android."
+
+nav:
+  - Início Rápido: 'index.md'
+  - Features:
+      - Cores: 'features/cores.md'
+  - Releases:
+      - v0.0.1: 'releases/v.0.0.1.md'
+plugins:
+  - techdocs-core
+
