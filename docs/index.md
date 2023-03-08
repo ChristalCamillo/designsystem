@@ -1,4 +1,4 @@
-### com.localiza.monitoring
+### com.localiza.designsystem
 Biblioteca para designsystem de aplicações android no contexto da Localiza
 
 ## Requisitos
