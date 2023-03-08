@@ -1,0 +1,69 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+
+
+platform :android do
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: ":designSystem:test")
+    gradle(task:":designSystem:jacocoReportTest")
+  end
+  desc "Runs sonar"
+  lane :sonarQubeAnalysis do
+    sonar(
+    project_configuration_path:"./sonar-project.properties",
+    project_key: "com-localiza-designsystem",
+    project_version: "1.0",
+    project_name: "Android - DesignSystem lib",
+    sonar_organization: "aab440a34d90e639a6858a99eb4f0656f8e14fc5",
+    sonar_login: ENV["SONARCLOUD_TOKEN"],
+    sonar_url: "https://sonarcloud.io"
+  )
+  end
+
+  desc "Generate new version"
+  lane :release do
+    sh "bash #{ENV['PWD']}/scripts/semver_version.sh  -g 'android-design-system-' -p 'android-design-system-' "
+    sh "source version_env.sh && echo $VERSION > #{ENV['PWD']}/designsystem/version.txt "
+    sh "bash #{ENV['PWD']}/scripts/changelog.sh -p 'android-design-system-' -f '#{ENV['PWD']}/designsystem' > #{ENV['PWD']}/CHANGELOG.MD"
+    gradle(task: ":designSystem:publish")
+
+    # sh "your_script.sh"
+    # You can also use other beta testing services here
+  end
+  desc "Generate new snapshot version"
+    lane :beta do
+     sh "bash #{ENV['PWD']}/scripts/semver_version.sh  -g 'android-design-system-' -p 'android-design-system-' -s '-beta' "
+     sh "source version_env.sh && echo $VERSION > #{ENV['PWD']}/designSystem/version.txt "
+     gradle(task: ":designSystem:publish")
+
+
+      # sh "your_script.sh"
+      # You can also use other beta testing services here
+    end
+    desc "Generate new alpha version"
+        lane :alpha do
+         sh "bash #{ENV['PWD']}/scripts/semver_version.sh  -g 'android-design-system-' -p 'android-design-system-' -s '-alpha' "
+         sh "source version_env.sh && echo $VERSION > #{ENV['PWD']}/designSystem/version.txt"
+         gradle(task: ":designSystem:publish")
+
+
+          # sh "your_script.sh"
+          # You can also use other beta testing services here
+        end
+
+
+end

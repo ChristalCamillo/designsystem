@@ -1,0 +1,229 @@
+#
+# Azure Pipelines
+
+trigger:
+  branches:
+    include:
+      - '*'
+
+name: $(Build.BuildId)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+resources:
+  repositories:
+    - repository: templatesconfig
+      type: git
+      name: 'Infraestrutura - Localiza Agile/TI.CICD.Configuration'
+      ref: refs/heads/main
+    - repository: templates
+      type: git
+      name: 'Infraestrutura - Localiza Agile/TI.CICD.Templates'
+      ref: refs/tags/7-stable
+    - repository: templatesBackstage
+      type: git
+      name: 'Infraestrutura - Localiza Agile/TI.CICD.Templates.Backstage'
+      ref: refs/tags/2-stable
+
+variables:
+  - template: config.yml@templatesconfig
+  - template: yaml/config/vars.yml@templates
+# stage1: CI -> Build -> Test -> Lint
+# stage2: Release 
+stages:
+- stage: Build_and_Test
+  displayName: 'Build Android Module'
+  condition: always()
+  jobs:
+    - job: ChecagemEnvironmentsEVault
+      displayName: 'Checa valores, Cria Environments e Segredos Vault'
+      pool:
+        name: 'Localiza Agil - Linux'
+      variables:
+        TemplatesFolder: $(System.DefaultWorkingDirectory)/TI.CICD.Templates
+      steps:
+        - checkout: templates
+          clean: true
+          persistCredentials: true
+        - checkout: self
+          clean: true
+
+        - task: AzureKeyVault@1
+          displayName: 'Azure Key Vault: CofreLocaliza-d-EastUS'
+          inputs:
+            azureSubscription: $(KeyVaultSubscription)
+            KeyVaultName: 'CofreLocaliza-d-EastUS'
+            SecretsFilter: 'ti-cicd-agentazuredevops-token,ti-cicd-azure-service-principal-credentials-client-id,ti-cicd-azure-service-principal-credentials-client-secret,ti-cicd-azure-service-principal-credentials-tenant-id'
+            RunAsPreJob: true
+
+        - task: azurepowershell@4
+          displayName: 'Exporta segredos para jobs Microsoft Hosted'
+          name: SegredosVault
+          inputs:
+            azureSubscription: $(KeyVaultSubscription)
+            ScriptPath: '$(TemplatesFolder)/scripts/exporta-segredos-vault.ps1'
+            azurePowerShellVersion: LatestVersion    
+    - job: Android
+      displayName: Build Android Module
+      dependsOn: ChecagemEnvironmentsEVault
+      pool:
+        vmImage: 'macOS-latest'  
+      variables:
+        scheme: 'Runner'
+        sdk: 'iphoneos'
+        configuration: 'Release'
+        COCOAPODS_DISABLE_STATS: true
+        SONARCLOUD_TOKEN: $[ dependencies.ChecagemEnvironmentsEVault.outputs['SegredosVault.SonarCloudToken'] ]
+        AZDEVOPS_TOKEN: $[ dependencies.ChecagemEnvironmentsEVault.outputs['SegredosVault.AzDevopsToken'] ]
+        CI: true
+        SonarCloudEnabled: true
+      steps:
+      - task: JavaToolInstaller@0
+        inputs:
+          versionSpec: '11'
+          jdkArchitectureOption: 'x64'
+          jdkSourceOption: 'PreInstalled'
+      - task: Cache@2
+        displayName: "Cache Gem directory"
+        inputs:
+          key: gem | $(Agent.OS) | $(System.DefaultWorkingDirectory)/Gemfile.lock
+          restoreKeys: |
+            gem | "$(Agent.OS)"
+          path: /Users/runner/.gem
+          cacheHitVar: GEM_CACHE_HIT
+      - task: Bash@3
+        displayName: 'INSTALL FASTLANE DEPENDENCIES'
+        inputs:
+          targetType: inline
+          script: |
+            bundle config set path '~/.gem' && bundle install
+          condition: ne(variables.GEM_CACHE_HIT, 'true')
+      - task: Bash@3
+        displayName: 'RUN FASTLANE TEST'
+        inputs:
+          targetType: inline
+          script: |
+            bundle exec fastlane android test
+      - task: PublishCodeCoverageResults@1
+        inputs:
+          codeCoverageTool: 'JaCoCo'
+          summaryFileLocation: '$(System.DefaultWorkingDirectory)/designSystem/build/jacoco-reports/jacoco.xml'
+          pathToSources: '$(System.DefaultWorkingDirectory)/designSystem/src'
+      - task: PublishTestResults@2
+        inputs:
+          testResultsFormat: 'JUnit'
+          testResultsFiles: '**/TEST-*.xml'
+          searchFolder: '$(System.DefaultWorkingDirectory)/designSystem/build/test-results'
+          mergeTestResults: true
+      - task: Bash@3
+        displayName: 'INSTALL SONAR-SCANNER'
+        inputs:
+          targetType: inline
+          script: |
+            brew install sonar-scanner
+      - task: Bash@3
+        displayName: 'RUN FASTLANE SONAR'
+        inputs:
+          targetType: inline
+          script: |
+            bundle exec fastlane android sonarQubeAnalysis
+
+- ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/develop') }}:
+  - stage: beta
+    displayName: 'Publish BETA version'
+    dependsOn: Build_and_Test
+    condition: succeeded('Build_and_Test')
+    jobs:
+      - job: Android
+        displayName: Generate version Android Module
+        pool:
+          vmImage: 'macOS-latest'
+        steps:
+          - checkout: self
+            fetchDepth: 0
+            persistCredentials: true
+            clean: true
+          - task: JavaToolInstaller@0
+            inputs:
+              versionSpec: '11'
+              jdkArchitectureOption: 'x64'
+              jdkSourceOption: 'PreInstalled'
+          - task: Cache@2
+            displayName: "Cache Gem directory"
+            inputs:
+              key: gem | $(Agent.OS) | $(System.DefaultWorkingDirectory)/Gemfile.lock
+              restoreKeys: |
+                gem | "$(Agent.OS)"
+              path: /Users/runner/.gem
+              cacheHitVar: GEM_CACHE_HIT
+          - task: Bash@3
+            displayName: 'INSTALL FASTLANE DEPENDENCIES'
+            inputs:
+              targetType: inline
+              script: |
+                bundle config set path '~/.gem' && bundle install
+              condition: ne(variables.GEM_CACHE_HIT, 'true')
+          - task: Bash@3
+            displayName: 'Bump beta version'
+            env:
+              SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+            inputs:
+              filePath: '$(System.DefaultWorkingDirectory)/scripts/bump-beta-version.sh'
+              arguments: '$(Build.SourceBranch)'
+
+
+- ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/release') }}:
+  - stage: release
+    displayName: 'Publish version'
+    dependsOn: Build_and_Test
+    condition: succeeded('Build_and_Test')
+    jobs:
+      - job: Android
+        displayName: Generate version Android Module
+        pool:
+          vmImage: 'macOS-latest'
+        steps:
+        - checkout: self
+          fetchDepth: 0
+          persistCredentials: true
+          clean: true
+        - task: JavaToolInstaller@0
+          inputs:
+            versionSpec: '11'
+            jdkArchitectureOption: 'x64'
+            jdkSourceOption: 'PreInstalled'
+        - task: Cache@2
+          displayName: "Cache Gem directory"
+          inputs:
+            key: gem | $(Agent.OS) | $(System.DefaultWorkingDirectory)/Gemfile.lock
+            restoreKeys: |
+              gem | "$(Agent.OS)"
+            path: /Users/runner/.gem
+            cacheHitVar: GEM_CACHE_HIT
+        - task: Bash@3
+          displayName: 'INSTALL FASTLANE DEPENDENCIES'
+          inputs:
+            targetType: inline
+            script: |
+              bundle config set path '~/.gem' && bundle install
+            condition: ne(variables.GEM_CACHE_HIT, 'true')
+        - task: Bash@3
+          displayName: 'Bump release version'
+          env:
+            SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+          inputs:
+            filePath: '$(System.DefaultWorkingDirectory)/scripts/bump-version.sh'
+            arguments: '$(Build.SourceBranch)'
+
+- template: yaml/pipelines/pipeline-techdocs.yml@templatesBackstage
+  parameters:
+    componentName: "mob-design-system-android"
+    entityKind: 'component'
+    Ambientes:
+      dev: false
+      tst: false
+      prd: true
+
+
+
+    
+    
+          
+
