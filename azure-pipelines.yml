@@ -212,14 +212,14 @@ stages:
             filePath: '$(System.DefaultWorkingDirectory)/scripts/bump-version.sh'
             arguments: '$(Build.SourceBranch)'
 
-  - template: yaml/pipelines/pipeline-techdocs.yml@templatesBackstage
-    parameters:
-      componentName: "mob-design-system-android"
-      entityKind: 'component'
-      Ambientes:
-        dev: false
-        tst: false
-        prd: true
+- template: yaml/pipelines/pipeline-techdocs.yml@templatesBackstage
+  parameters:
+    componentName: "mob-design-system-android"
+    entityKind: 'component'
+    Ambientes:
+      dev: false
+      tst: false
+      prd: true
 
 
 
