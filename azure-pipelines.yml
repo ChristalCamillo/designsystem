@@ -1,10 +1,12 @@
 #
-# Azure Pipelines
+# Azure Pipelines Android
 
 trigger:
   branches:
     include:
       - '*'
+    exclude:
+      - main
 
 name: $(Build.BuildId)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 resources:
@@ -125,92 +127,97 @@ stages:
           script: |
             bundle exec fastlane android sonarQubeAnalysis
 
-- ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/develop') }}:
-  - stage: beta
-    displayName: 'Publish BETA version'
-    dependsOn: Build_and_Test
-    condition: succeeded('Build_and_Test')
-    jobs:
-      - job: Android
-        displayName: Generate version Android Module
-        pool:
-          vmImage: 'macOS-latest'
-        steps:
-          - checkout: self
-            fetchDepth: 0
-            persistCredentials: true
-            clean: true
-          - task: JavaToolInstaller@0
-            inputs:
-              versionSpec: '11'
-              jdkArchitectureOption: 'x64'
-              jdkSourceOption: 'PreInstalled'
-          - task: Cache@2
-            displayName: "Cache Gem directory"
-            inputs:
-              key: gem | $(Agent.OS) | $(System.DefaultWorkingDirectory)/Gemfile.lock
-              restoreKeys: |
-                gem | "$(Agent.OS)"
-              path: /Users/runner/.gem
-              cacheHitVar: GEM_CACHE_HIT
-          - task: Bash@3
-            displayName: 'INSTALL FASTLANE DEPENDENCIES'
-            inputs:
-              targetType: inline
-              script: |
-                bundle config set path '~/.gem' && bundle install
-              condition: ne(variables.GEM_CACHE_HIT, 'true')
-          - task: Bash@3
-            displayName: 'Bump beta version'
-            env:
-              SYSTEM_ACCESSTOKEN: $(System.AccessToken)
-            inputs:
-              filePath: '$(System.DefaultWorkingDirectory)/scripts/bump-beta-version.sh'
-              arguments: '$(Build.SourceBranch)'
-
-
-- ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/release') }}:
-  - stage: release
-    displayName: 'Publish version'
-    dependsOn: Build_and_Test
-    condition: succeeded('Build_and_Test')
-    jobs:
-      - job: Android
-        displayName: Generate version Android Module
-        pool:
-          vmImage: 'macOS-latest'
-        steps:
-        - checkout: self
-          fetchDepth: 0
-          persistCredentials: true
-          clean: true
-        - task: JavaToolInstaller@0
-          inputs:
-            versionSpec: '11'
-            jdkArchitectureOption: 'x64'
-            jdkSourceOption: 'PreInstalled'
-        - task: Cache@2
-          displayName: "Cache Gem directory"
-          inputs:
-            key: gem | $(Agent.OS) | $(System.DefaultWorkingDirectory)/Gemfile.lock
-            restoreKeys: |
-              gem | "$(Agent.OS)"
-            path: /Users/runner/.gem
-            cacheHitVar: GEM_CACHE_HIT
-        - task: Bash@3
-          displayName: 'INSTALL FASTLANE DEPENDENCIES'
-          inputs:
-            targetType: inline
-            script: |
-              bundle config set path '~/.gem' && bundle install
-            condition: ne(variables.GEM_CACHE_HIT, 'true')
-        - task: Bash@3
-          displayName: 'Bump release version'
-          env:
-            SYSTEM_ACCESSTOKEN: $(System.AccessToken)
-          inputs:
-            filePath: '$(System.DefaultWorkingDirectory)/scripts/bump-version.sh'
-            arguments: '$(Build.SourceBranch)'
+- ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/release/') }}:
+    - stage: beta
+      displayName: 'Publish BETA version'
+      dependsOn: Build_and_Test
+      condition: succeeded('Build_and_Test')
+      jobs:
+        - deployment: beta
+          environment: mob-design-system-android-beta
+          displayName: Generate beta version for Android Module
+          pool:
+            vmImage: 'macOS-latest'
+          strategy:
+            runOnce:
+              deploy:
+                steps:
+                  - checkout: self
+                    fetchDepth: 0
+                    persistCredentials: true
+                    clean: true
+                  - task: JavaToolInstaller@0
+                    inputs:
+                      versionSpec: '11'
+                      jdkArchitectureOption: 'x64'
+                      jdkSourceOption: 'PreInstalled'
+                  - task: Cache@2
+                    displayName: "Cache Gem directory"
+                    inputs:
+                      key: gem | $(Agent.OS) | $(System.DefaultWorkingDirectory)/Gemfile.lock
+                      restoreKeys: |
+                        gem | "$(Agent.OS)"
+                      path: /Users/runner/.gem
+                      cacheHitVar: GEM_CACHE_HIT
+                  - task: Bash@3
+                    displayName: 'INSTALL FASTLANE DEPENDENCIES'
+                    inputs:
+                      targetType: inline
+                      script: |
+                        bundle config set path '~/.gem' && bundle install
+                      condition: ne(variables.GEM_CACHE_HIT, 'true')
+                  - task: Bash@3
+                    displayName: 'Bump beta version'
+                    env:
+                      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+                    inputs:
+                      filePath: '$(System.DefaultWorkingDirectory)/scripts/bump-beta-version.sh'
+                      arguments: '$(Build.SourceBranch)'
+    - stage: latest
+      displayName: 'Publish latest version'
+      dependsOn: beta
+      condition: and(succeeded('beta'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'))
+      jobs:
+        - deployment: latest
+          environment: mob-design-system-android-latest
+          displayName: Generate latest version for android
+          pool:
+            vmImage: 'macOS-latest'
+          strategy:
+            runOnce:
+              deploy:
+                steps:
+                - checkout: self
+                  fetchDepth: 0
+                  persistCredentials: true
+                  clean: true
+                - task: JavaToolInstaller@0
+                  inputs:
+                    versionSpec: '11'
+                    jdkArchitectureOption: 'x64'
+                    jdkSourceOption: 'PreInstalled'
+                - task: Cache@2
+                  displayName: "Cache Gem directory"
+                  inputs:
+                    key: gem | $(Agent.OS) | $(System.DefaultWorkingDirectory)/Gemfile.lock
+                    restoreKeys: |
+                      gem | "$(Agent.OS)"
+                    path: /Users/runner/.gem
+                    cacheHitVar: GEM_CACHE_HIT
+                - task: Bash@3
+                  displayName: 'INSTALL FASTLANE DEPENDENCIES'
+                  inputs:
+                    targetType: inline
+                    script: |
+                      bundle config set path '~/.gem' && bundle install
+                    condition: ne(variables.GEM_CACHE_HIT, 'true')
+                - task: Bash@3
+                  displayName: 'Bump latest version'
+                  env:
+                    SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+                  inputs:
+                    filePath: '$(System.DefaultWorkingDirectory)/scripts/bump-version.sh'
+                    arguments: '$(Build.SourceBranch)'
 
 - template: yaml/pipelines/pipeline-techdocs.yml@templatesBackstage
   parameters:
