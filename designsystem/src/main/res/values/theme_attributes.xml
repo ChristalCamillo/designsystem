@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //ThemeColorAccent
+    //Primary
+    //default:
+    <attr name="ColorAccentPrimaryDefault" format="color"/>
+    //state:
+    <attr name="ColorAccentPrimaryActivated" format="color"/>
+    <attr name="ColorAccentPrimaryDisabled" format="color"/>
+    <attr name="ColorAccentPrimaryFocused" format="color"/>
+    <attr name="ColorAccentPrimaryHovered" format="color"/>
+    <attr name="ColorAccentPrimaryPressed" format="color"/>
+    //emphasis:
+    <attr name="ColorAccentPrimaryEmphasisLower" format="color"/>
+    <attr name="ColorAccentPrimaryEmphasisLow" format="color"/>
+    <attr name="ColorAccentPrimaryEmphasisHigh" format="color"/>
+    <attr name="ColorAccentPrimaryEmphasisHigher" format="color"/>
+    //contrast:
+    <attr name="ColorAccentPrimaryContrastDefault" format="color"/>
+    <attr name="ColorAccentPrimaryContrastActivated" format="color"/>
+    <attr name="ColorAccentPrimaryContrastDisabled" format="color"/>
+    <attr name="ColorAccentPrimaryContrastFocused" format="color"/>
+    <attr name="ColorAccentPrimaryContrastHovered" format="color"/>
+    <attr name="ColorAccentPrimaryContrastPressed" format="color"/>
+    <attr name="ColorAccentPrimaryContrastLower" format="color"/>
+    <attr name="ColorAccentPrimaryContrastLow" format="color"/>
+    <attr name="ColorAccentPrimaryContrastHigh" format="color"/>
+    <attr name="ColorAccentPrimaryContrastHigher" format="color"/>
+    //Secondary
+    //default:
+    <attr name="ColorAccentSecondaryDefault" format="color"/>
+    //state:
+    <attr name="ColorAccentSecondaryActivated" format="color"/>
+    <attr name="ColorAccentSecondaryDisabled" format="color"/>
+    <attr name="ColorAccentSecondaryFocused" format="color"/>
+    <attr name="ColorAccentSecondaryHovered" format="color"/>
+    <attr name="ColorAccentSecondaryPressed" format="color"/>
+    //emphasis:
+    <attr name="ColorAccentSecondaryEmphasisLower" format="color"/>
+    <attr name="ColorAccentSecondaryEmphasisLow" format="color"/>
+    <attr name="ColorAccentSecondaryEmphasisHigh" format="color"/>
+    <attr name="ColorAccentSecondaryEmphasisHigher" format="color"/>
+    //contrast:
+    <attr name="ColorAccentSecondaryContrastDefault" format="color"/>
+    <attr name="ColorAccentSecondaryContrastActivated" format="color"/>
+    <attr name="ColorAccentSecondaryContrastDisabled" format="color"/>
+    <attr name="ColorAccentSecondaryContrastFocused" format="color"/>
+    <attr name="ColorAccentSecondaryContrastHovered" format="color"/>
+    <attr name="ColorAccentSecondaryContrastPressed" format="color"/>
+    <attr name="ColorAccentSecondaryContrastLower" format="color"/>
+    <attr name="ColorAccentSecondaryContrastLow" format="color"/>
+    <attr name="ColorAccentSecondaryContrastHigh" format="color"/>
+    <attr name="ColorAccentSecondaryContrastHigher" format="color"/>
+    //Success
+    //default:
+    <attr name="ColorAccentSuccessDefault" format="color"/>
+    //state:
+    <attr name="ColorAccentSuccessActivated" format="color"/>
+    <attr name="ColorAccentSuccessDisabled" format="color"/>
+    <attr name="ColorAccentSuccessFocused" format="color"/>
+    <attr name="ColorAccentSuccessHovered" format="color"/>
+    <attr name="ColorAccentSuccessPressed" format="color"/>
+    //emphasis:
+    <attr name="ColorAccentSuccessEmphasisLower" format="color"/>
+    <attr name="ColorAccentSuccessEmphasisLow" format="color"/>
+    <attr name="ColorAccentSuccessEmphasisHigh" format="color"/>
+    <attr name="ColorAccentSuccessEmphasisHigher" format="color"/>
+    //contrast:
+    <attr name="ColorAccentSuccessContrastDefault" format="color"/>
+    <attr name="ColorAccentSuccessContrastActivated" format="color"/>
+    <attr name="ColorAccentSuccessContrastDisabled" format="color"/>
+    <attr name="ColorAccentSuccessContrastFocused" format="color"/>
+    <attr name="ColorAccentSuccessContrastHovered" format="color"/>
+    <attr name="ColorAccentSuccessContrastPressed" format="color"/>
+    <attr name="ColorAccentSuccessContrastLower" format="color"/>
+    <attr name="ColorAccentSuccessContrastLow" format="color"/>
+    <attr name="ColorAccentSuccessContrastHigh" format="color"/>
+    <attr name="ColorAccentSuccessContrastHigher" format="color"/>
+    //Warning
+    //default:
+    <attr name="ColorAccentWarningDefault" format="color"/>
+    //state:
+    <attr name="ColorAccentWarningActivated" format="color"/>
+    <attr name="ColorAccentWarningDisabled" format="color"/>
+    <attr name="ColorAccentWarningFocused" format="color"/>
+    <attr name="ColorAccentWarningHovered" format="color"/>
+    <attr name="ColorAccentWarningPressed" format="color"/>
+    //emphasis:
+    <attr name="ColorAccentWarningEmphasisLower" format="color"/>
+    <attr name="ColorAccentWarningEmphasisLow" format="color"/>
+    <attr name="ColorAccentWarningEmphasisHigh" format="color"/>
+    <attr name="ColorAccentWarningEmphasisHigher" format="color"/>
+    //contrast:
+    <attr name="ColorAccentWarningContrastDefault" format="color"/>
+    <attr name="ColorAccentWarningContrastActivated" format="color"/>
+    <attr name="ColorAccentWarningContrastDisabled" format="color"/>
+    <attr name="ColorAccentWarningContrastFocused" format="color"/>
+    <attr name="ColorAccentWarningContrastHovered" format="color"/>
+    <attr name="ColorAccentWarningContrastPressed" format="color"/>
+    <attr name="ColorAccentWarningContrastLower" format="color"/>
+    <attr name="ColorAccentWarningContrastLow" format="color"/>
+    <attr name="ColorAccentWarningContrastHigh" format="color"/>
+    <attr name="ColorAccentWarningContrastHigher" format="color"/>
+    //Critical
+    //default:
+    <attr name="ColorAccentCriticalDefault" format="color"/>
+    //state:
+    <attr name="ColorAccentCriticalActivated" format="color"/>
+    <attr name="ColorAccentCriticalDisabled" format="color"/>
+    <attr name="ColorAccentCriticalFocused" format="color"/>
+    <attr name="ColorAccentCriticalHovered" format="color"/>
+    <attr name="ColorAccentCriticalPressed" format="color"/>
+    //emphasis:
+    <attr name="ColorAccentCriticalEmphasisLower" format="color"/>
+    <attr name="ColorAccentCriticalEmphasisLow" format="color"/>
+    <attr name="ColorAccentCriticalEmphasisHigh" format="color"/>
+    <attr name="ColorAccentCriticalEmphasisHigher" format="color"/>
+    //contrast:
+    <attr name="ColorAccentCriticalContrastDefault" format="color"/>
+    <attr name="ColorAccentCriticalContrastActivated" format="color"/>
+    <attr name="ColorAccentCriticalContrastDisabled" format="color"/>
+    <attr name="ColorAccentCriticalContrastFocused" format="color"/>
+    <attr name="ColorAccentCriticalContrastHovered" format="color"/>
+    <attr name="ColorAccentCriticalContrastPressed" format="color"/>
+    <attr name="ColorAccentCriticalContrastLower" format="color"/>
+    <attr name="ColorAccentCriticalContrastLow" format="color"/>
+    <attr name="ColorAccentCriticalContrastHigh" format="color"/>
+    <attr name="ColorAccentCriticalContrastHigher" format="color"/>
+    //Info
+    //default:
+    <attr name="ColorAccentInfoDefault" format="color"/>
+    //state:
+    <attr name="ColorAccentInfoActivated" format="color"/>
+    <attr name="ColorAccentInfoDisabled" format="color"/>
+    <attr name="ColorAccentInfoFocused" format="color"/>
+    <attr name="ColorAccentInfoHovered" format="color"/>
+    <attr name="ColorAccentInfoPressed" format="color"/>
+    //emphasis:
+    <attr name="ColorAccentInfoEmphasisLower" format="color"/>
+    <attr name="ColorAccentInfoEmphasisLow" format="color"/>
+    <attr name="ColorAccentInfoEmphasisHigh" format="color"/>
+    <attr name="ColorAccentInfoEmphasisHigher" format="color"/>
+    //contrast:
+    <attr name="ColorAccentInfoContrastDefault" format="color"/>
+    <attr name="ColorAccentInfoContrastActivated" format="color"/>
+    <attr name="ColorAccentInfoContrastDisabled" format="color"/>
+    <attr name="ColorAccentInfoContrastFocused" format="color"/>
+    <attr name="ColorAccentInfoContrastHovered" format="color"/>
+    <attr name="ColorAccentInfoContrastPressed" format="color"/>
+    <attr name="ColorAccentInfoContrastLower" format="color"/>
+    <attr name="ColorAccentInfoContrastLow" format="color"/>
+    <attr name="ColorAccentInfoContrastHigh" format="color"/>
+    <attr name="ColorAccentInfoContrastHigher" format="color"/>
+    //ThemeColorNeutral
+    <attr name="ColorNeutralneutralGrayDefault" format="color"/>
+    <attr name="ColorNeutralneutralGrayEmphasisLower" format="color"/>
+    <attr name="ColorNeutralneutralGrayEmphasisLow" format="color"/>
+    <attr name="ColorNeutralneutralGrayEmphasisHigh" format="color"/>
+    <attr name="ColorNeutralneutralGrayEmphasisHigher" format="color"/>
+    <attr name="ColorNeutralneutralGrayContrastDefault" format="color"/>
+    <attr name="ColorNeutralneutralGrayContrastLower" format="color"/>
+    <attr name="ColorNeutralneutralGrayContrastLow" format="color"/>
+    <attr name="ColorNeutralneutralGrayContrastHigh" format="color"/>
+    <attr name="ColorNeutralneutralGrayContrastHigher" format="color"/>
+</resources>

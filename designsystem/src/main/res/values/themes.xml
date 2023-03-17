@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="DefaultTheme">
+        //ThemeColorAccent
+        //Primary
+        //default:
+        <item name="ColorAccentPrimaryDefault">@color/green_20</item>
+        //state:
+        <item name="ColorAccentPrimaryActivated" >@color/green_20 </item>
+        <item name="ColorAccentPrimaryDisabled" >@color/gray_20 </item>
+        <item name="ColorAccentPrimaryFocused" >@color/green_100 </item>
+        <item name="ColorAccentPrimaryHovered" >@color/green_40 </item>
+        <item name="ColorAccentPrimaryPressed" >@color/green_60 </item>
+        //emphasis:
+        <item name="ColorAccentPrimaryEmphasisLower" >@color/green_0 </item>
+        <item name="ColorAccentPrimaryEmphasisLow" >@color/green_5 </item>
+        <item name="ColorAccentPrimaryEmphasisHigh" >@color/green_70</item>
+        <item name="ColorAccentPrimaryEmphasisHigher" >@color/green_100 </item>
+        //contrast:
+        <item name="ColorAccentPrimaryContrastDefault" >@color/green_100 </item>
+        <item name="ColorAccentPrimaryContrastActivated" >@color/green_100 </item>
+        <item name="ColorAccentPrimaryContrastDisabled" >@color/gray_60 </item>
+        <item name="ColorAccentPrimaryContrastFocused" >@color/white </item>
+        <item name="ColorAccentPrimaryContrastHovered" >@color/green_100 </item>
+        <item name="ColorAccentPrimaryContrastPressed" >@color/white </item>
+        <item name="ColorAccentPrimaryContrastLower" >@color/green_100 </item>
+        <item name="ColorAccentPrimaryContrastLow" >@color/green_100 </item>
+        <item name="ColorAccentPrimaryContrastHigh" >@color/white </item>
+        <item name="ColorAccentPrimaryContrastHigher" >@color/green_0 </item>
+        //Secondary
+        //default:
+        <item name="ColorAccentSecondaryDefault" >@color/black </item>
+        //state:
+        <item name="ColorAccentSecondaryActivated" >@color/black </item>
+        <item name="ColorAccentSecondaryDisabled" >@color/gray_20 </item>
+        <item name="ColorAccentSecondaryFocused" >@color/gray_40 </item>
+        <item name="ColorAccentSecondaryHovered" >@color/gray_90 </item>
+        <item name="ColorAccentSecondaryPressed" >@color/gray_80 </item>
+        //emphasis:
+        <item name="ColorAccentSecondaryEmphasisLower" >@color/gray_5 </item>
+        <item name="ColorAccentSecondaryEmphasisLow" >@color/gray_70 </item>
+        <item name="ColorAccentSecondaryEmphasisHigh" >@color/black </item>
+        <item name="ColorAccentSecondaryEmphasisHigher" >@color/black </item>
+        //contrast:
+        <item name="ColorAccentSecondaryContrastDefault" >@color/gray_0 </item>
+        <item name="ColorAccentSecondaryContrastActivated" >@color/gray_0 </item>
+        <item name="ColorAccentSecondaryContrastDisabled" >@color/gray_60 </item>
+        <item name="ColorAccentSecondaryContrastFocused" >@color/black </item>
+        <item name="ColorAccentSecondaryContrastHovered" >@color/white </item>
+        <item name="ColorAccentSecondaryContrastPressed" >@color/white </item>
+        <item name="ColorAccentSecondaryContrastLower" >@color/gray_100 </item>
+        <item name="ColorAccentSecondaryContrastLow" >@color/gray_100 </item>
+        <item name="ColorAccentSecondaryContrastHigh" >@color/gray_0 </item>
+        <item name="ColorAccentSecondaryContrastHigher" >@color/gray_0 </item>
+        //Success
+        //default:
+        <item name="ColorAccentSuccessDefault" >@color/mint_60 </item>
+        //state:
+        <item name="ColorAccentSuccessActivated" >@color/mint_60 </item>
+        <item name="ColorAccentSuccessDisabled" >@color/gray_20 </item>
+        <item name="ColorAccentSuccessFocused" >@color/mint_100 </item>
+        <item name="ColorAccentSuccessHovered" >@color/mint_80 </item>
+        <item name="ColorAccentSuccessPressed" >@color/mint_100 </item>
+        //emphasis:
+        <item name="ColorAccentSuccessEmphasisLower" >@color/mint_0 </item>
+        <item name="ColorAccentSuccessEmphasisLow" >@color/mint_20 </item>
+        <item name="ColorAccentSuccessEmphasisHigh" >@color/mint_80 </item>
+        <item name="ColorAccentSuccessEmphasisHigher" >@color/mint_100 </item>
+        //contrast:
+        <item name="ColorAccentSuccessContrastDefault" >@color/white </item>
+        <item name="ColorAccentSuccessContrastActivated" >@color/white </item>
+        <item name="ColorAccentSuccessContrastDisabled" >@color/gray_60 </item>
+        <item name="ColorAccentSuccessContrastFocused" >@color/white </item>
+        <item name="ColorAccentSuccessContrastHovered" >@color/white </item>
+        <item name="ColorAccentSuccessContrastPressed" >@color/white </item>
+        <item name="ColorAccentSuccessContrastLower" >@color/mint_100 </item>
+        <item name="ColorAccentSuccessContrastLow" >@color/mint_100 </item>
+        <item name="ColorAccentSuccessContrastHigh" >@color/white </item>
+        <item name="ColorAccentSuccessContrastHigher" >@color/mint_0 </item>
+        //Warning
+        //default:
+        <item name="ColorAccentWarningDefault" >@color/amber_10 </item>
+        //state:
+        <item name="ColorAccentWarningActivated" >@color/amber_10 </item>
+        <item name="ColorAccentWarningDisabled" >@color/gray_20 </item>
+        <item name="ColorAccentWarningFocused" >@color/amber_100 </item>
+        <item name="ColorAccentWarningHovered" >@color/amber_30 </item>
+        <item name="ColorAccentWarningPressed" >@color/amber_50 </item>
+        //emphasis:
+        <item name="ColorAccentWarningEmphasisLower" >@color/amber_0 </item>
+        <item name="ColorAccentWarningEmphasisLow" >@color/amber_5 </item>
+        <item name="ColorAccentWarningEmphasisHigh" >@color/amber_30 </item>
+        <item name="ColorAccentWarningEmphasisHigher" >@color/amber_100 </item>
+        //contrast:
+        <item name="ColorAccentWarningContrastDefault" >@color/amber_100 </item>
+        <item name="ColorAccentWarningContrastActivated" >@color/amber_100 </item>
+        <item name="ColorAccentWarningContrastDisabled" >@color/gray_60 </item>
+        <item name="ColorAccentWarningContrastFocused" >@color/amber_0 </item>
+        <item name="ColorAccentWarningContrastHovered" >@color/black </item>
+        <item name="ColorAccentWarningContrastPressed" >@color/black </item>
+        <item name="ColorAccentWarningContrastLower" >@color/amber_100 </item>
+        <item name="ColorAccentWarningContrastLow" >@color/amber_100 </item>
+        <item name="ColorAccentWarningContrastHigh" >@color/black </item>
+        <item name="ColorAccentWarningContrastHigher" >@color/amber_0 </item>
+        //Critical
+        //default:
+        <item name="ColorAccentCriticalDefault" >@color/red_60 </item>
+        //state:
+        <item name="ColorAccentCriticalActivated" >@color/red_60 </item>
+        <item name="ColorAccentCriticalDisabled" >@color/gray_20 </item>
+        <item name="ColorAccentCriticalFocused" >@color/red_100 </item>
+        <item name="ColorAccentCriticalHovered" >@color/red_80 </item>
+        <item name="ColorAccentCriticalPressed" >@color/red_100 </item>
+        //emphasis:
+        <item name="ColorAccentCriticalEmphasisLower" >@color/red_0 </item>
+        <item name="ColorAccentCriticalEmphasisLow" >@color/red_20 </item>
+        <item name="ColorAccentCriticalEmphasisHigh" >@color/red_80 </item>
+        <item name="ColorAccentCriticalEmphasisHigher" >@color/red_100 </item>
+        //contrast:
+        <item name="ColorAccentCriticalContrastDefault" >@color/white </item>
+        <item name="ColorAccentCriticalContrastActivated" >@color/white </item>
+        <item name="ColorAccentCriticalContrastDisabled" >@color/gray_60 </item>
+        <item name="ColorAccentCriticalContrastFocused" >@color/white </item>
+        <item name="ColorAccentCriticalContrastHovered" >@color/white </item>
+        <item name="ColorAccentCriticalContrastPressed" >@color/white </item>
+        <item name="ColorAccentCriticalContrastLower" >@color/red_100 </item>
+        <item name="ColorAccentCriticalContrastLow" >@color/red_100 </item>
+        <item name="ColorAccentCriticalContrastHigh" >@color/red_0 </item>
+        <item name="ColorAccentCriticalContrastHigher" >@color/red_0 </item>
+        //Info
+        //default:
+        <item name="ColorAccentInfoDefault" >@color/blue_60 </item>
+        //state:
+        <item name="ColorAccentInfoActivated" >@color/blue_60 </item>
+        <item name="ColorAccentInfoDisabled" >@color/gray_20 </item>
+        <item name="ColorAccentInfoFocused" >@color/blue_100 </item>
+        <item name="ColorAccentInfoHovered" >@color/blue_80 </item>
+        <item name="ColorAccentInfoPressed" >@color/blue_100</item>
+        //emphasis:
+        <item name="ColorAccentInfoEmphasisLower" >@color/blue_0 </item>
+        <item name="ColorAccentInfoEmphasisLow" >@color/blue_20 </item>
+        <item name="ColorAccentInfoEmphasisHigh" >@color/blue_80 </item>
+        <item name="ColorAccentInfoEmphasisHigher" >@color/blue_100 </item>
+        //contrast:
+        <item name="ColorAccentInfoContrastDefault" >@color/white </item>
+        <item name="ColorAccentInfoContrastActivated" >@color/white </item>
+        <item name="ColorAccentInfoContrastDisabled" >@color/gray_60 </item>
+        <item name="ColorAccentInfoContrastFocused" >@color/white </item>
+        <item name="ColorAccentInfoContrastHovered" >@color/white </item>
+        <item name="ColorAccentInfoContrastPressed" >@color/white </item>
+        <item name="ColorAccentInfoContrastLower" >@color/blue_100 </item>
+        <item name="ColorAccentInfoContrastLow" >@color/blue_100 </item>
+        <item name="ColorAccentInfoContrastHigh" >@color/white </item>
+        <item name="ColorAccentInfoContrastHigher" >@color/blue_0 </item>
+        //ThemeColorNeutral
+        <item name="ColorNeutralneutralGrayDefault" >@color/white </item>
+        <item name="ColorNeutralneutralGrayEmphasisLower" >@color/gray_5 </item>
+        <item name="ColorNeutralneutralGrayEmphasisLow" >@color/gray_20 </item>
+        <item name="ColorNeutralneutralGrayEmphasisHigh" >@color/gray_40 </item>
+        <item name="ColorNeutralneutralGrayEmphasisHigher" >@color/gray_80 </item>
+        <item name="ColorNeutralneutralGrayContrastDefault" >@color/gray_100 </item>
+        <item name="ColorNeutralneutralGrayContrastLower" >@color/gray_100 </item>
+        <item name="ColorNeutralneutralGrayContrastLow" >@color/black </item>
+        <item name="ColorNeutralneutralGrayContrastHigh" >@color/black </item>
+        <item name="ColorNeutralneutralGrayContrastHigher" >@color/white </item>
+    </style>
+</resources>
