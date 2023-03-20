@@ -164,4 +164,32 @@
         <item name="ColorNeutralneutralGrayContrastHigh" >@color/black </item>
         <item name="ColorNeutralneutralGrayContrastHigher" >@color/white </item>
     </style>
+    <style name="SeminovosTheme">
+    //ThemeColorAccent
+    //Primary
+    //default:
+    <item name="ColorAccentPrimaryDefault">@color/orange_60</item>
+    //state:
+    <item name="ColorAccentPrimaryActivated" >@color/orange_60 </item>
+    <item name="ColorAccentPrimaryDisabled" >@color/gray_20 </item>
+    <item name="ColorAccentPrimaryFocused" >@color/orange_100 </item>
+    <item name="ColorAccentPrimaryHovered" >@color/orange_80 </item>
+    <item name="ColorAccentPrimaryPressed" >@color/orange_100 </item>
+    //emphasis:
+    <item name="ColorAccentPrimaryEmphasisLower" >@color/orange_0 </item>
+    <item name="ColorAccentPrimaryEmphasisLow" >@color/orange_20 </item>
+    <item name="ColorAccentPrimaryEmphasisHigh" >@color/orange_80</item>
+    <item name="ColorAccentPrimaryEmphasisHigher" >@color/orange_100 </item>
+    //contrast:
+    <item name="ColorAccentPrimaryContrastDefault" >@color/white </item>
+    <item name="ColorAccentPrimaryContrastActivated" >@color/white </item>
+    <item name="ColorAccentPrimaryContrastDisabled" >@color/gray_60 </item>
+    <item name="ColorAccentPrimaryContrastFocused" >@color/white </item>
+    <item name="ColorAccentPrimaryContrastHovered" >@color/white </item>
+    <item name="ColorAccentPrimaryContrastPressed" >@color/white </item>
+    <item name="ColorAccentPrimaryContrastLower" >@color/orange_100 </item>
+    <item name="ColorAccentPrimaryContrastLow" >@color/orange_100 </item>
+    <item name="ColorAccentPrimaryContrastHigh" >@color/white </item>
+    <item name="ColorAccentPrimaryContrastHigher" >@color/orange_0 </item>
+    </style>
 </resources>
