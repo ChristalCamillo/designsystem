@@ -1,0 +1,13 @@
+{
+  "name": "mob-design-system-android",
+  "version": "1.0.0",
+  "description": "Biblioteca para designsystem de aplicações android no contexto da Localiza",
+  "scripts": {
+    "prepare": "npx husky install"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "husky": "^8.0.3"
+  }
+}
