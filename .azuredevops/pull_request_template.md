@@ -12,15 +12,9 @@ Certifique-se que o seu PR contém o seguinte:
 # Descrição
 _Forneça um resumo de alto nível das alterações para as alterações e notas para os revisores_
 
-# Descrição
+# Checklist
 - [ ] Testes foram adicionados e estão passando
 - [ ] A documentação está atualizada
 - [ ] O lint foi passada e todos os pontos corrigidos
 - [ ] O código passou pelo SonarQube
 - [ ] CodeReview ok 
-
-## Commits Recentes
-
-{{#each commits}}
-- [{{this.id}}]({{this.url}}): {{this.message}}
-{{/each}}
