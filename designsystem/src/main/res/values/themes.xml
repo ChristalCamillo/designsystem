@@ -164,7 +164,7 @@
         <item name="ColorNeutralneutralGrayContrastHigh" >@color/black </item>
         <item name="ColorNeutralneutralGrayContrastHigher" >@color/white </item>
     </style>
-    <style name="SeminovosTheme">
+    <style name="SeminovosTheme" parent="DefaultTheme">
     //ThemeColorAccent
     //Primary
     //default:
