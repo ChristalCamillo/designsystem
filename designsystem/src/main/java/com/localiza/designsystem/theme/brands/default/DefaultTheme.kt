@@ -4,6 +4,7 @@ import androidx.compose.ui.graphics.Color
 import com.localiza.designsystem.theme.*
 
 object BaseTheme: LDSTheme() {
+    override var tokens: RawTokens = RawTokensBaseTheme()
 }
 
 class RawTokensBaseTheme() : RawTokens{

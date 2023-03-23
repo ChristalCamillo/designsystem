@@ -1,0 +1,46 @@
+package com.localiza.designsystem.theme.brands.default
+
+import androidx.compose.ui.graphics.Color
+import com.localiza.designsystem.theme.*
+
+object SeminovosTheme: LDSTheme() {
+   init{
+       tokens = ThemeBuilder().primaryAccentColor(ThemeColorAccentSeminovosThemePrimary()).build().tokens
+   }
+}
+
+//PRIMARY
+class ThemeColorAccentSeminovosThemePrimaryContrast: ThemeColorAccentContrast{
+    override var activated: Color = LDSColors.green100
+    override var disabled: Color = LDSColors.gray60
+    override var default: Color = LDSColors.green100
+    override var focused: Color = LDSColors.white
+    override var high: Color = LDSColors.white
+    override var higher: Color = LDSColors.green0
+    override var hovered: Color = LDSColors.green100
+    override var low: Color = LDSColors.green100
+    override var lower: Color = LDSColors.green100
+    override var pressed: Color = LDSColors.white
+}
+
+class ThemeColorAccentSeminovosThemePrimaryEmphasis: ThemeColorEmphasis{
+    override var high: Color = LDSColors.green70
+    override var low: Color = LDSColors.green5
+    override var lower: Color = LDSColors.green0
+    override var higher: Color = LDSColors.green100
+}
+
+class ThemeColorAccentSeminovosThemePrimaryState: ThemeColorState{
+    override var activated: Color = LDSColors.orange60
+    override var disabled: Color = LDSColors.green20
+    override var focused: Color = LDSColors.green100
+    override var hovered: Color = LDSColors.green40
+    override var pressed: Color = LDSColors.green60
+}
+
+class ThemeColorAccentSeminovosThemePrimary: ThemeColorAccent{
+    override var contrast: ThemeColorAccentContrast = ThemeColorAccentSeminovosThemePrimaryContrast()
+    override var default: Color = LDSColors.orange60
+    override var emphasis: ThemeColorEmphasis = ThemeColorAccentSeminovosThemePrimaryEmphasis()
+    override var state: ThemeColorState = ThemeColorAccentSeminovosThemePrimaryState()
+}

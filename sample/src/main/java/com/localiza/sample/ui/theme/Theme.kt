@@ -14,6 +14,11 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
+import com.localiza.designsystem.theme.AppTheme
+import com.localiza.designsystem.theme.LDSTheme
+import com.localiza.designsystem.theme.brands.default.BaseTheme
+import com.localiza.designsystem.theme.toMaterialColors
+
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -39,6 +44,7 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun DesignsystemTheme(
+    defaultTheme: LDSTheme = BaseTheme,
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
@@ -59,10 +65,11 @@ fun DesignsystemTheme(
             ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = darkTheme
         }
     }
-
+LDSTheme(theme = defaultTheme) {
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = AppTheme.colors.toMaterialColors(),
         typography = Typography,
         content = content
     )
+}
 }
