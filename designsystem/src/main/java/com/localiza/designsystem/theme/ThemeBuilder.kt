@@ -2,8 +2,9 @@ package com.localiza.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 import com.localiza.designsystem.theme.brands.default.BaseTheme
+import com.localiza.designsystem.theme.types.spacing.ThemeSpacing
 
-class ThemeBuilder(var theme: LDSTheme = BaseTheme) {
+class ThemeBuilder(private var theme: LDSTheme = BaseTheme) {
     fun primaryAccentColor(color: ThemeColorAccent): ThemeBuilder{
         this.theme.tokens.color.accent.primary = color
         return this
@@ -32,6 +33,10 @@ class ThemeBuilder(var theme: LDSTheme = BaseTheme) {
         this.theme.tokens.color.neutral.gray = color
         return this
     }
+     fun spacing(themeSpacing: ThemeSpacing): ThemeBuilder {
+         this.theme.tokens.spacing =  themeSpacing
+         return this
+     }
 
     fun build(): LDSTheme{
         return theme

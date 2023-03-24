@@ -6,16 +6,25 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.platform.LocalContext
 import com.localiza.designsystem.theme.brands.default.BaseTheme
+import com.localiza.designsystem.theme.types.spacing.ThemeSpacing
 
 private val LocalThemeColor = staticCompositionLocalOf<ThemeColor> {
     error("No ThemeColor provided")
 }
 
-object AppTheme {
+private val LocalThemeSpacing = staticCompositionLocalOf<ThemeSpacing> {
+    error("No ThemeColor provided")
+}
+
+object LDSAppTheme {
     val colors: ThemeColor
         @Composable
         @ReadOnlyComposable
         get() = LocalThemeColor.current
+    val spacing : ThemeSpacing
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalThemeSpacing.current
 }
 
 fun ThemeColor.toMaterialColors(): ColorScheme{
@@ -33,5 +42,13 @@ fun LDSTheme(
     ) {
         color
     }
-    CompositionLocalProvider(LocalThemeColor provides themeColorState, content = content)
+    val spacing = theme.tokens.spacing
+    val themeSpacingState = remember(
+        spacing
+    ) {
+        spacing
+    }
+    CompositionLocalProvider(LocalThemeColor  provides themeColorState,
+                                     LocalThemeSpacing provides    themeSpacingState,
+        content = content)
 }

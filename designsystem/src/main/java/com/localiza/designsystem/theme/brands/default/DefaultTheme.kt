@@ -2,13 +2,15 @@ package com.localiza.designsystem.theme.brands.default
 
 import androidx.compose.ui.graphics.Color
 import com.localiza.designsystem.theme.*
+import com.localiza.designsystem.theme.types.spacing.NumberThemeSpacing
+import com.localiza.designsystem.theme.types.spacing.ThemeSpacing
 
 object BaseTheme: LDSTheme() {
     override var tokens: RawTokens = RawTokensBaseTheme()
 }
-
 class RawTokensBaseTheme() : RawTokens{
     override var color: ThemeColor = ThemeColorBaseTheme()
+    override var spacing : ThemeSpacing = NumberThemeSpacing(8)
 }
 
 class ThemeColorBaseTheme: ThemeColor{
