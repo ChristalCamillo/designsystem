@@ -21,7 +21,7 @@ object LDSAppTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalThemeColor.current
-    val spacing : ThemeSpacing
+    val themeSpacing : ThemeSpacing
         @Composable
         @ReadOnlyComposable
         get() = LocalThemeSpacing.current

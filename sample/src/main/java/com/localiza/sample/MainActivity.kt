@@ -5,19 +5,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import com.localiza.designsystem.theme.LDSAppTheme
-import com.localiza.designsystem.theme.LDSColors
+
 import com.localiza.sample.ui.theme.DesignsystemTheme
 
 class MainActivity : ComponentActivity() {
@@ -39,7 +34,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!", Modifier.padding(LDSAppTheme.spacing.spacing(2).dp))
+    Text(text = "Hello $name!", Modifier.padding(LDSAppTheme.themeSpacing.spacing(2).dp))
 }
 
 @Preview(showBackground = true)
