@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!", Modifier.padding(LDSAppTheme.themeSpacing.spacing(2).dp))
+    Text(text = "Hello $name!", Modifier.padding(LDSAppTheme.theme.spacing(2).dp))
 }
 
 @Preview(showBackground = true)

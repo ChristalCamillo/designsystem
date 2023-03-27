@@ -12,8 +12,8 @@ private val LocalThemeColor = staticCompositionLocalOf<ThemeColor> {
     error("No ThemeColor provided")
 }
 
-private val LocalThemeSpacing = staticCompositionLocalOf<ThemeSpacing> {
-    error("No ThemeColor provided")
+private val LocalLDSTheme = staticCompositionLocalOf<LDSTheme> {
+    error("No LDSTheme provided")
 }
 
 object LDSAppTheme {
@@ -21,10 +21,10 @@ object LDSAppTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalThemeColor.current
-    val themeSpacing : ThemeSpacing
+    val theme : LDSTheme
         @Composable
         @ReadOnlyComposable
-        get() = LocalThemeSpacing.current
+        get() = LocalLDSTheme.current
 }
 
 fun ThemeColor.toMaterialColors(): ColorScheme{
@@ -42,13 +42,13 @@ fun LDSTheme(
     ) {
         color
     }
-    val spacing = theme.tokens.spacing
-    val themeSpacingState = remember(
-        spacing
+
+    val themeState = remember(
+        theme
     ) {
-        spacing
+        theme
     }
     CompositionLocalProvider(LocalThemeColor  provides themeColorState,
-                                     LocalThemeSpacing provides    themeSpacingState,
+        LocalLDSTheme provides    themeState,
         content = content)
 }
