@@ -4,7 +4,8 @@ site_description: "Biblioteca para centralizar a estratégia de tokens e temas d
 nav:
   - Início Rápido: 'index.md'
   - Features:
-      - Cores: 'features/cores.md'
+      - Cores: 'features/color.md'
+      - Espaçamento : 'features/spacing.md'
   - Releases:
       - v0.0.1: 'releases/v.0.0.1.md'
 plugins:

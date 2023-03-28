@@ -1,5 +1,6 @@
 package com.localiza.designsystem.lib
 import androidx.compose.ui.graphics.Color
+import com.localiza.designsystem.theme.types.spacing.ThemeSpacing
 
 interface Theme{
     var tokens: RawTokens
@@ -7,6 +8,7 @@ interface Theme{
 
 interface RawTokens{
     var color: ThemeColor
+    var spacing: ThemeSpacing
 }
 
 interface ThemeColor{

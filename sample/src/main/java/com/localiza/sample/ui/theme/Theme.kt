@@ -14,10 +14,11 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
-import com.localiza.designsystem.lib.AppTheme
-import com.localiza.designsystem.lib.theme.LDSTheme
-import com.localiza.designsystem.lib.brands.default.BaseTheme
-import com.localiza.designsystem.lib.toMaterialColors
+import com.localiza.designsystem.theme.LDSAppTheme
+import com.localiza.designsystem.theme.LDSTheme
+import com.localiza.designsystem.theme.brands.default.BaseTheme
+import com.localiza.designsystem.theme.brands.default.SeminovosTheme
+import com.localiza.designsystem.theme.toMaterialColors
 
 
 private val DarkColorScheme = darkColorScheme(
@@ -44,7 +45,7 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun DesignsystemTheme(
-    defaultTheme: LDSTheme = BaseTheme,
+    defaultTheme: LDSTheme = SeminovosTheme,
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
@@ -67,7 +68,7 @@ fun DesignsystemTheme(
     }
 LDSTheme(theme = defaultTheme) {
     MaterialTheme(
-        colorScheme = AppTheme.colors.toMaterialColors(),
+        colorScheme = LDSAppTheme.colors.toMaterialColors(),
         typography = Typography,
         content = content
     )

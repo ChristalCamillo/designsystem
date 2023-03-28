@@ -162,4 +162,19 @@
     <attr name="ColorNeutralneutralGrayContrastLow" format="color"/>
     <attr name="ColorNeutralneutralGrayContrastHigh" format="color"/>
     <attr name="ColorNeutralneutralGrayContrastHigher" format="color"/>
+    //Spacing
+    <attr name="lds_spacing_0x" format="dimension"/>
+    <attr name="lds_spacing_1x" format="dimension"/>
+    <attr name="lds_spacing_2x" format="dimension"/>
+    <attr name="lds_spacing_3x" format="dimension"/>
+    <attr name="lds_spacing_4x" format="dimension"/>
+    <attr name="lds_spacing_5x" format="dimension"/>
+    <attr name="lds_spacing_6x" format="dimension"/>
+    <attr name="lds_spacing_7x" format="dimension"/>
+    <attr name="lds_spacing_8x" format="dimension"/>
+    <attr name="lds_spacing_9x" format="dimension"/>
+    <attr name="lds_spacing_10x" format="dimension"/>
+    <attr name="lds_spacing_11x" format="dimension"/>
+    <attr name="lds_spacing_12x" format="dimension"/>
+
 </resources>

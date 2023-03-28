@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.LDSBase" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">?ColorAccentPrimaryDefault</item>
+        <item name="colorPrimaryVariant">?ColorAccentPrimaryContrastHigh</item>
+        <item name="colorOnPrimary">?ColorAccentSecondaryContrastHigh</item>
+        <item name="colorSecondary">?ColorAccentSecondaryDefault</item>
+        <item name="colorSecondaryVariant">?ColorAccentSecondaryDefault</item>
+        <item name="colorOnSecondary">?ColorAccentSecondaryContrastHigh</item>
+        <item name="colorError">?ColorAccentCriticalDefault</item>
+        <item name="colorOnError">?ColorAccentCriticalDefault</item>
+        <item name="colorSurface">?ColorAccentSecondaryContrastHigh</item>
+        <item name="colorOnSurface">?ColorAccentSecondaryContrastHigh</item>
+        <item name="colorAccent">?ColorAccentPrimaryContrastHigh</item>
+        <item name="android:textColorPrimary">?ColorAccentPrimaryContrastHigh</item>
+        <item name="android:textColorPrimaryDisableOnly">?ColorAccentPrimaryDisabled</item>
+        <item name="android:textColorSecondary">?ColorAccentSecondaryContrastHigh</item>
+
+
+        <item name="lds_spacing_0x">@dimen/lds_spacing_0x</item>
+        <item name="lds_spacing_1x">@dimen/lds_spacing_1x</item>
+        <item name="lds_spacing_2x">@dimen/lds_spacing_2x</item>
+        <item name="lds_spacing_3x">@dimen/lds_spacing_3x</item>
+        <item name="lds_spacing_4x">@dimen/lds_spacing_4x</item>
+        <item name="lds_spacing_5x">@dimen/lds_spacing_5x</item>
+        <item name="lds_spacing_6x">@dimen/lds_spacing_6x</item>
+        <item name="lds_spacing_7x">@dimen/lds_spacing_7x</item>
+        <item name="lds_spacing_8x">@dimen/lds_spacing_8x</item>
+        <item name="lds_spacing_9x">@dimen/lds_spacing_9x</item>
+        <item name="lds_spacing_10x">@dimen/lds_spacing_10x</item>
+        <item name="lds_spacing_11x">@dimen/lds_spacing_11x</item>
+        <item name="lds_spacing_12x">@dimen/lds_spacing_12x</item>
+
+    </style>
+</resources>
