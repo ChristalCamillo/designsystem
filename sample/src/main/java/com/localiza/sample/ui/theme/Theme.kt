@@ -14,10 +14,10 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
-import com.localiza.designsystem.theme.AppTheme
-import com.localiza.designsystem.theme.LDSTheme
-import com.localiza.designsystem.theme.brands.default.BaseTheme
-import com.localiza.designsystem.theme.toMaterialColors
+import com.localiza.designsystem.lib.AppTheme
+import com.localiza.designsystem.lib.theme.LDSTheme
+import com.localiza.designsystem.lib.brands.default.BaseTheme
+import com.localiza.designsystem.lib.toMaterialColors
 
 
 private val DarkColorScheme = darkColorScheme(

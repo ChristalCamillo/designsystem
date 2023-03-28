@@ -1,7 +1,9 @@
-package com.localiza.designsystem.theme.brands.default
+package com.localiza.designsystem.lib.brands.default
 
 import androidx.compose.ui.graphics.Color
-import com.localiza.designsystem.theme.*
+import com.localiza.designsystem.lib.*
+import com.localiza.designsystem.lib.colors.LDSColors
+import com.localiza.designsystem.lib.theme.LDSTheme
 
 object BaseTheme: LDSTheme() {
     override var tokens: RawTokens = RawTokensBaseTheme()

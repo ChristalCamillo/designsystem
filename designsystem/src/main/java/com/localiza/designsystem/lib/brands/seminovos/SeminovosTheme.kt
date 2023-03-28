@@ -1,14 +1,17 @@
-package com.localiza.designsystem.theme.brands.default
+package com.localiza.designsystem.lib.brands.default
 
 import androidx.compose.ui.graphics.Color
-import com.localiza.designsystem.theme.*
+import com.localiza.designsystem.lib.*
+import com.localiza.designsystem.lib.colors.LDSColors
+import com.localiza.designsystem.lib.theme.LDSTheme
+import com.localiza.designsystem.lib.theme.ThemeBuilder
 
 object SeminovosTheme: LDSTheme() {
    init{
-       tokens = ThemeBuilder().primaryAccentColor(ThemeColorAccentSeminovosThemePrimary()).build().tokens
+       tokens = ThemeBuilder().primaryAccentColor(ThemeColorAccentSeminovosThemePrimary()).build(
+       ).tokens
    }
 }
-
 //PRIMARY
 class ThemeColorAccentSeminovosThemePrimaryContrast: ThemeColorAccentContrast{
     override var activated: Color = LDSColors.green100

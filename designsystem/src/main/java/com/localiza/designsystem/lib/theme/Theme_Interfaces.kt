@@ -1,4 +1,4 @@
-package com.localiza.designsystem.theme
+package com.localiza.designsystem.lib
 import androidx.compose.ui.graphics.Color
 
 interface Theme{
