@@ -1,7 +1,7 @@
 package com.localiza.designsystem.lib.brands.default
 
 import androidx.compose.ui.graphics.Color
-import com.localiza.designsystem.lib.LDSColors
+import com.localiza.designsystem.lib.colors.LDSColors
 import com.localiza.designsystem.lib.theme.*
 import com.localiza.designsystem.lib.theme.types.spacing.NumberThemeSpacing
 import com.localiza.designsystem.lib.theme.types.spacing.ThemeSpacing
