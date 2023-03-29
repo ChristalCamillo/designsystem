@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+LOCAL_PATH="/usr/local"
+export PATH="$LOCAL_PATH/bin:$PATH"
+npx --no -- commitlint --edit 
