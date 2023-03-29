@@ -44,4 +44,8 @@ LDSColors.amber10
 ```
 "@color/amber_10"
 ```
+## Features
+
+* [Temas](themes.md)
+* [Espaçamento](spacing.md)
 

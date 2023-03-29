@@ -8,3 +8,5 @@ O objetivo dessa primeira versão foi criar uma estrutura de cores que permita a
 
 Com a paleta de [Cores](../features/cores.md) você pode configurar sua aplicação com a paleta da Localiza
 
+
+

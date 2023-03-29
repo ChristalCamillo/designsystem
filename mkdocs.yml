@@ -6,8 +6,10 @@ nav:
   - Features:
       - Cores: 'features/color.md'
       - Espaçamento : 'features/spacing.md'
+      - Temas: 'features/themes.md'
   - Releases:
-      - v0.0.1: 'releases/v.0.0.1.md'
+      - v.0.1.0: 'releases/v.0.1.0.md'
+      - v.0.0.1: 'releases/v.0.0.1.md'
 plugins:
   - techdocs-core
 

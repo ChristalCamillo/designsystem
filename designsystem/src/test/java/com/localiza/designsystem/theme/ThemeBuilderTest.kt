@@ -1,9 +1,10 @@
 package com.localiza.designsystem.theme
 
 
-import com.localiza.designsystem.theme.types.spacing.ArrowFunctionThemeSpacing
-import com.localiza.designsystem.theme.types.spacing.NumberArrayThemeSpacing
-import com.localiza.designsystem.theme.types.spacing.NumberThemeSpacing
+import com.localiza.designsystem.lib.theme.ThemeBuilder
+import com.localiza.designsystem.lib.theme.types.spacing.ArrowFunctionThemeSpacing
+import com.localiza.designsystem.lib.theme.types.spacing.NumberArrayThemeSpacing
+import com.localiza.designsystem.lib.theme.types.spacing.NumberThemeSpacing
 import org.junit.Assert
 import org.junit.Test
 

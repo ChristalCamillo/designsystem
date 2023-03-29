@@ -26,11 +26,8 @@ No build gradle do seu projeto adicione :
 implementation(group: 'br.com.localiza', name: 'designSystem', version: '0.0.2-alpha')
 ```
 
-### UTILIZAÇÃO JETPACK COMPOSE
-```
-LDSColors.amber10
-```
-### UTILIZAÇÃO XML
-```
-"@color/amber_10"
-```
+## Features
+
+* [Cores](color.md)
+*[Espaçamento](spacing.md)
+* [Temas](themes.md)

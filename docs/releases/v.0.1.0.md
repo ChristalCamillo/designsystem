@@ -1,0 +1,13 @@
+# v.0.1.0
+
+O objetivo dessa versão foi criar tokens de cores e espaçamento para o tema de design system Localiza.
+
+## Destaques
+
+### Temas
+
+Com os [Temas](../features/themes.md) você pode configurar sua aplicação com a paleta de cores padrão da Localiza, ou criar a partir dela.
+
+### Espaçamento
+
+Com os [Espaçamentos](../features/spacing.md) você ajusta paddings e margens de acordo com o padrão da empresa.

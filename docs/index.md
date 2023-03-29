@@ -28,3 +28,5 @@ implementation(group: 'br.com.localiza', name: 'designSystem', version: '0.0.2-a
 ## Features
 
 * [Cores](features/cores.md)
+*[Temas](features/themes.md)
+* [Espaçamento](features/spacing.md)

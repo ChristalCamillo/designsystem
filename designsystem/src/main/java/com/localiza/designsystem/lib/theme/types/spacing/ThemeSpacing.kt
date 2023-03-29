@@ -1,4 +1,4 @@
-package com.localiza.designsystem.theme.types.spacing
+package com.localiza.designsystem.lib.theme.types.spacing
 
 abstract class ThemeSpacing{
     abstract fun spacing(value:Int): Int

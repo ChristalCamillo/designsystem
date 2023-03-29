@@ -1,11 +1,8 @@
 package com.localiza.designsystem.lib.theme
 
-import com.localiza.designsystem.lib.ThemeColorAccent
 import com.localiza.designsystem.lib.brands.default.BaseTheme
 import com.localiza.designsystem.lib.brands.default.SeminovosTheme
 import com.localiza.designsystem.lib.brands.default.SeminovosTheme.tokens
-import com.localiza.designsystem.lib.brands.default.ThemeColorAccentBaseThemePrimary
-import com.localiza.designsystem.lib.brands.default.ThemeColorAccentSeminovosThemePrimary
 import io.mockk.mockk
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -37,6 +34,7 @@ internal class ThemeBuilderTest {
     @Test
     fun `check if seminovos theme is constructed`(){
         var theme = ThemeBuilder(seminovosTheme).build()
+        assertEquals(seminovosTheme.tokens, theme.tokens)
         assertEquals(seminovosTheme.tokens.color,theme.tokens.color)
     }
 

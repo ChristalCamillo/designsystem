@@ -1,9 +1,10 @@
-package com.localiza.designsystem.theme.brands.default
+package com.localiza.designsystem.lib.brands.default
 
 import androidx.compose.ui.graphics.Color
-import com.localiza.designsystem.theme.*
-import com.localiza.designsystem.theme.types.spacing.NumberThemeSpacing
-import com.localiza.designsystem.theme.types.spacing.ThemeSpacing
+import com.localiza.designsystem.lib.LDSColors
+import com.localiza.designsystem.lib.theme.*
+import com.localiza.designsystem.lib.theme.types.spacing.NumberThemeSpacing
+import com.localiza.designsystem.lib.theme.types.spacing.ThemeSpacing
 
 object BaseTheme: LDSTheme() {
     override var tokens: RawTokens = RawTokensBaseTheme()
@@ -13,7 +14,7 @@ class RawTokensBaseTheme() : RawTokens{
     override var spacing : ThemeSpacing = NumberThemeSpacing(8)
 }
 
-class ThemeColorBaseTheme: ThemeColor{
+class ThemeColorBaseTheme: ThemeColor {
     override var accent: ThemeColorAccentVariants = ThemeColorAccentBaseThemeVariant()
     override var neutral: ThemeColorNeutralVariant = ThemeColorNeutralBaseThemeVariant()
 }
@@ -163,10 +164,10 @@ class ThemeColorAccentBaseThemeSuccessState: ThemeColorState {
 
 //WARNING
 class ThemeColorAccentBaseThemeWarning: ThemeColorAccent{
-    override var contrast: ThemeColorAccentContrast = ThemeColorAccentBaseThemeSuccessContrast()
+    override var contrast: ThemeColorAccentContrast = ThemeColorAccentBaseThemeWarningContrast()
     override var default: Color = LDSColors.amber10
-    override var emphasis: ThemeColorEmphasis = ThemeColorAccentBaseThemeSuccessEmphasis()
-    override var state: ThemeColorState = ThemeColorAccentBaseThemeSuccessState()
+    override var emphasis: ThemeColorEmphasis = ThemeColorAccentBaseThemeWarningEmphasis()
+    override var state: ThemeColorState = ThemeColorAccentBaseThemeWarningState()
 }
 
 class ThemeColorAccentBaseThemeWarningContrast: ThemeColorAccentContrast{

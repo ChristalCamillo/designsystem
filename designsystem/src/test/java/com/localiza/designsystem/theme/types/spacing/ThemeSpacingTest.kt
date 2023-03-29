@@ -1,5 +1,8 @@
 package com.localiza.designsystem.theme.types.spacing
 
+import com.localiza.designsystem.lib.theme.types.spacing.ArrowFunctionThemeSpacing
+import com.localiza.designsystem.lib.theme.types.spacing.NumberArrayThemeSpacing
+import com.localiza.designsystem.lib.theme.types.spacing.NumberThemeSpacing
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
