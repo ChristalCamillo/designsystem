@@ -42,6 +42,7 @@ fun ThemeColor.toMaterialColors(): ColorScheme {
 This composable provides the theme for the underlying tree
  */
 @Composable
+@Suppress("FunctionNaming")
 fun LDSTheme(
     theme: LDSThemeData,
     content: @Composable () -> Unit,
