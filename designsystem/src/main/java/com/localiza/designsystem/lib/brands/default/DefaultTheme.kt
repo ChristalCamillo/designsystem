@@ -2,7 +2,7 @@ package com.localiza.designsystem.lib.brands.default
 
 import androidx.compose.ui.graphics.Color
 import com.localiza.designsystem.lib.colors.LDSColors
-import com.localiza.designsystem.lib.theme.LDSTheme
+import com.localiza.designsystem.lib.theme.LDSThemeData
 import com.localiza.designsystem.lib.theme.RawTokens
 import com.localiza.designsystem.lib.theme.ThemeColor
 import com.localiza.designsystem.lib.theme.ThemeColorAccent
@@ -17,7 +17,7 @@ import com.localiza.designsystem.lib.theme.types.spacing.NumberThemeSpacing
 import com.localiza.designsystem.lib.theme.types.spacing.ThemeSpacing
 
 const val SPACE_BREAKER = 8
-object BaseTheme : LDSTheme() {
+object BaseTheme : LDSThemeData() {
     override var tokens: RawTokens = RawTokensBaseTheme()
 }
 class RawTokensBaseTheme : RawTokens {

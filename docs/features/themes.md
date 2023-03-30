@@ -11,7 +11,7 @@ Setando a função de tema que engloba os componentes de Material Design (não h
 ```
 @Composable
 fun DesignsystemTheme(
-    defaultTheme: LDSTheme = SeminovosTheme,
+    defaultTheme: LDSThemeData = SeminovosTheme,
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

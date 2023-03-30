@@ -13,7 +13,7 @@ import androidx.core.view.ViewCompat
 import com.localiza.designsystem.lib.brands.default.SeminovosTheme
 import com.localiza.designsystem.lib.theme.LDSAppTheme
 import com.localiza.designsystem.lib.theme.LDSTheme
-import com.localiza.designsystem.lib.theme.makeLDSTheme
+import com.localiza.designsystem.lib.theme.LDSThemeData
 import com.localiza.designsystem.lib.theme.toMaterialColors
 
 
@@ -41,7 +41,7 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun DesignsystemTheme(
-    defaultTheme: LDSTheme = SeminovosTheme,
+    defaultTheme: LDSThemeData = SeminovosTheme,
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
@@ -62,7 +62,7 @@ fun DesignsystemTheme(
             ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = darkTheme
         }
     }
-makeLDSTheme(theme = defaultTheme) {
+LDSTheme(theme = defaultTheme) {
     MaterialTheme(
         colorScheme = LDSAppTheme.colors.toMaterialColors(),
         typography = Typography,

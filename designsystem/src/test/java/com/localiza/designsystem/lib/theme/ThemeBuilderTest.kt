@@ -2,7 +2,6 @@ package com.localiza.designsystem.lib.theme
 
 import com.localiza.designsystem.lib.brands.default.BaseTheme
 import com.localiza.designsystem.lib.brands.default.SeminovosTheme
-import com.localiza.designsystem.lib.brands.default.SeminovosTheme.tokens
 import io.mockk.mockk
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -15,8 +14,8 @@ internal class ThemeBuilderTest {
     private val warningAccentColor: ThemeColorAccent = mockk(relaxed = true, relaxUnitFun = true)
     private val criticalAccentColor: ThemeColorAccent = mockk(relaxed = true, relaxUnitFun = true)
     private val infoAccentColor: ThemeColorAccent = mockk(relaxed = true, relaxUnitFun = true)
-    private val defaultTheme: LDSTheme = BaseTheme
-    private val seminovosTheme: LDSTheme = SeminovosTheme
+    private val defaultTheme: LDSThemeData = BaseTheme
+    private val seminovosTheme: LDSThemeData = SeminovosTheme
     private lateinit var themeBuilder: ThemeBuilder
 
     @Before

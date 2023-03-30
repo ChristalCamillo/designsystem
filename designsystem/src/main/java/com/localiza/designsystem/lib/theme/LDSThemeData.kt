@@ -1,9 +1,9 @@
 package com.localiza.designsystem.lib.theme
 
 /**
-LDSTheme  is the class that will represent the themes in this framework
+LDSThemeData  is the class that will represent the themes in this framework
  */
-open class LDSTheme : Theme {
+open class LDSThemeData : Theme {
     override lateinit var tokens: RawTokens
     /**
      Calculate the spacing based on the item passed in the constructor

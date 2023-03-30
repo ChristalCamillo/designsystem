@@ -12,21 +12,25 @@ private val localThemeColor = staticCompositionLocalOf<ThemeColor> {
     error("No ThemeColor provided")
 }
 
-private val localLDSTheme = staticCompositionLocalOf<LDSTheme> {
+private val localLDSThemeData = staticCompositionLocalOf<LDSThemeData> {
     error("No LDSTheme provided")
 }
-
+/**
+Receive the tokens and make them available for use in themes
+ */
 object LDSAppTheme {
     val colors: ThemeColor
         @Composable
         @ReadOnlyComposable
         get() = localThemeColor.current
-    val theme: LDSTheme
+    val theme: LDSThemeData
         @Composable
         @ReadOnlyComposable
-        get() = localLDSTheme.current
+        get() = localLDSThemeData.current
 }
-
+/**
+Creates a color scheme to be used in the material components
+ */
 fun ThemeColor.toMaterialColors(): ColorScheme {
     return lightColorScheme(
         primary = this.accent.primary.default,
@@ -34,10 +38,12 @@ fun ThemeColor.toMaterialColors(): ColorScheme {
         error = this.accent.critical.default
     )
 }
-
+/**
+This composable provides the theme for the underlying tree
+ */
 @Composable
-fun makeLDSTheme(
-    theme: LDSTheme,
+fun LDSTheme(
+    theme: LDSThemeData,
     content: @Composable () -> Unit,
 ) {
     val color = theme.tokens.color
@@ -54,7 +60,7 @@ fun makeLDSTheme(
     }
     CompositionLocalProvider(
         localThemeColor provides themeColorState,
-        localLDSTheme provides themeState,
+        localLDSThemeData provides themeState,
         content = content
     )
 }
