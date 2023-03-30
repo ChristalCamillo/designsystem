@@ -2,13 +2,17 @@ package com.localiza.designsystem.lib.theme
 
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.lightColorScheme
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.staticCompositionLocalOf
 
-private val LocalThemeColor = staticCompositionLocalOf<ThemeColor> {
+private val localThemeColor = staticCompositionLocalOf<ThemeColor> {
     error("No ThemeColor provided")
 }
 
-private val LocalLDSTheme = staticCompositionLocalOf<LDSTheme> {
+private val localLDSTheme = staticCompositionLocalOf<LDSTheme> {
     error("No LDSTheme provided")
 }
 
@@ -16,19 +20,23 @@ object LDSAppTheme {
     val colors: ThemeColor
         @Composable
         @ReadOnlyComposable
-        get() = LocalThemeColor.current
-    val theme : LDSTheme
+        get() = localThemeColor.current
+    val theme: LDSTheme
         @Composable
         @ReadOnlyComposable
-        get() = LocalLDSTheme.current
+        get() = localLDSTheme.current
 }
 
-fun ThemeColor.toMaterialColors(): ColorScheme{
-    return lightColorScheme(primary = this.accent.primary.default, secondary = this.accent.secondary.default, error = this.accent.critical.default)
+fun ThemeColor.toMaterialColors(): ColorScheme {
+    return lightColorScheme(
+        primary = this.accent.primary.default,
+        secondary = this.accent.secondary.default,
+        error = this.accent.critical.default
+    )
 }
 
 @Composable
-fun LDSTheme(
+fun makeLDSTheme(
     theme: LDSTheme,
     content: @Composable () -> Unit,
 ) {
@@ -45,7 +53,8 @@ fun LDSTheme(
         theme
     }
     CompositionLocalProvider(
-        LocalThemeColor  provides themeColorState,
-        LocalLDSTheme provides    themeState,
-        content = content)
+        localThemeColor provides themeColorState,
+        localLDSTheme provides themeState,
+        content = content
+    )
 }

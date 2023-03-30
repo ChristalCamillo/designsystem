@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import com.localiza.designsystem.lib.brands.default.SeminovosTheme
 import com.localiza.designsystem.lib.theme.LDSAppTheme
 import com.localiza.designsystem.lib.theme.LDSTheme
+import com.localiza.designsystem.lib.theme.makeLDSTheme
 import com.localiza.designsystem.lib.theme.toMaterialColors
 
 
@@ -61,7 +62,7 @@ fun DesignsystemTheme(
             ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = darkTheme
         }
     }
-LDSTheme(theme = defaultTheme) {
+makeLDSTheme(theme = defaultTheme) {
     MaterialTheme(
         colorScheme = LDSAppTheme.colors.toMaterialColors(),
         typography = Typography,

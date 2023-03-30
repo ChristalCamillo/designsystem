@@ -4,6 +4,4 @@ class NumberThemeSpacing(val spacingBreak: Int) : ThemeSpacing() {
     override fun spacing(value: Int): Int {
         return spacingBreak * value
     }
-
-
 }

@@ -25,71 +25,70 @@ internal class ThemeBuilderTest {
     }
 
     @Test
-    fun `check if default theme is constructed`(){
+    fun `check if default theme is constructed`() {
         var theme = ThemeBuilder().build()
         assertEquals(defaultTheme.tokens, theme.tokens)
-        assertEquals(defaultTheme.tokens.color,theme.tokens.color)
+        assertEquals(defaultTheme.tokens.color, theme.tokens.color)
     }
 
     @Test
-    fun `check if seminovos theme is constructed`(){
+    fun `check if seminovos theme is constructed`() {
         var theme = ThemeBuilder(seminovosTheme).build()
         assertEquals(seminovosTheme.tokens, theme.tokens)
-        assertEquals(seminovosTheme.tokens.color,theme.tokens.color)
+        assertEquals(seminovosTheme.tokens.color, theme.tokens.color)
     }
 
     @Test
-    fun `GIVEN themeBuilder WHEN change colorAccent primary THEN check if is color is set`(){
-        //GIVEN:
-        //WHEN:
+    fun `GIVEN themeBuilder WHEN change colorAccent primary THEN check if is color is set`() {
+        // GIVEN:
+        // WHEN:
         var theme = themeBuilder.primaryAccentColor(primaryAccentColor).build()
-        //THEN:
+        // THEN:
         assertEquals(primaryAccentColor, theme.tokens.color.accent.primary)
     }
 
     @Test
-    fun `GIVEN themeBuilder WHEN change colorAccent secondary THEN check if is color is set`(){
-        //GIVEN:
-        //WHEN:
+    fun `GIVEN themeBuilder WHEN change colorAccent secondary THEN check if is color is set`() {
+        // GIVEN:
+        // WHEN:
         var theme = themeBuilder.secondaryAccentColor(secondaryAccentColor).build()
-        //THEN:
+        // THEN:
         assertEquals(secondaryAccentColor, theme.tokens.color.accent.secondary)
     }
 
     @Test
-    fun `GIVEN themeBuilder WHEN change colorAccent success THEN check if is color is set`(){
-        //GIVEN:
-        //WHEN:
+    fun `GIVEN themeBuilder WHEN change colorAccent success THEN check if is color is set`() {
+        // GIVEN:
+        // WHEN:
         var theme = themeBuilder.successAccentColor(successAccentColor).build()
-        //THEN:
+        // THEN:
         assertEquals(successAccentColor, theme.tokens.color.accent.success)
     }
 
     @Test
-    fun `GIVEN themeBuilder WHEN change colorAccent warning THEN check if is color is set`(){
-        //GIVEN:
-        //WHEN:
+    fun `GIVEN themeBuilder WHEN change colorAccent warning THEN check if is color is set`() {
+        // GIVEN:
+        // WHEN:
         var theme = themeBuilder.warningAccentColor(warningAccentColor).build()
-        //THEN:
+        // THEN:
         assertEquals(warningAccentColor, theme.tokens.color.accent.warning)
     }
 
     @Test
-    fun `GIVEN themeBuilder WHEN change colorAccent critical THEN check if is color is set`(){
-        //GIVEN:
-        //WHEN:
+    fun `GIVEN themeBuilder WHEN change colorAccent critical THEN check if is color is set`() {
+        // GIVEN:
+        // WHEN:
         var theme = themeBuilder.criticalAccentColor(criticalAccentColor).build()
-        //THEN:
+        // THEN:
         assertEquals(criticalAccentColor, theme.tokens.color.accent.critical)
     }
 
     @Test
-    fun `GIVEN themeBuilder WHEN change colorAccent info THEN check if is color is set`(){
-        //GIVEN:
-        //WHEN:
+    fun `GIVEN themeBuilder WHEN change colorAccent info THEN check if is color is set`() {
+        // GIVEN:
+        // WHEN:
         var theme = themeBuilder.infoAccentColor(infoAccentColor).build()
-        //THEN:
+        // THEN:
         assertEquals(infoAccentColor, theme.tokens.color.accent.info)
     }
 }
-

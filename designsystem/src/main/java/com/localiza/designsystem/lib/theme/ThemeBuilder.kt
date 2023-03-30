@@ -1,7 +1,7 @@
 package com.localiza.designsystem.lib.theme
 
-import com.localiza.designsystem.lib.theme.types.spacing.ThemeSpacing
 import com.localiza.designsystem.lib.brands.default.BaseTheme
+import com.localiza.designsystem.lib.theme.types.spacing.ThemeSpacing
 
 class ThemeBuilder(private var theme: LDSTheme = BaseTheme) {
     fun primaryAccentColor(color: ThemeColorAccent): ThemeBuilder {
@@ -18,7 +18,7 @@ class ThemeBuilder(private var theme: LDSTheme = BaseTheme) {
     }
     fun warningAccentColor(color: ThemeColorAccent): ThemeBuilder {
         this.theme.tokens.color.accent.warning = color
-        return  this
+        return this
     }
     fun criticalAccentColor(color: ThemeColorAccent): ThemeBuilder {
         this.theme.tokens.color.accent.critical = color
@@ -32,10 +32,10 @@ class ThemeBuilder(private var theme: LDSTheme = BaseTheme) {
         this.theme.tokens.color.neutral.gray = color
         return this
     }
-     fun spacing(themeSpacing: ThemeSpacing): ThemeBuilder {
-         this.theme.tokens.spacing =  themeSpacing
-         return this
-     }
+    fun spacing(themeSpacing: ThemeSpacing): ThemeBuilder {
+        this.theme.tokens.spacing = themeSpacing
+        return this
+    }
 
     fun build(): LDSTheme {
         return theme
